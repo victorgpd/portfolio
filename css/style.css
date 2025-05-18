@@ -477,6 +477,10 @@ header {
   font-size: 15px;
 
   color: var(--text-secondary);
+
+  @media screen and (max-width: 600px) {
+    font-size: 13px;
+  }
 }
 
 .card-project::after {
