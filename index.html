@@ -3,7 +3,208 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfólio</title>
+    <title>Victor | Desenvolvedor Front-end</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <i class="fi fi-rr-menu-burger menu-button" onclick="toggleMenu()" aria-label="Abrir menu de navegação"></i>
+
+      <h1 class="gradient-text">Portfólio</h1>
+
+      <nav class="nav-header">
+        <ul class="list-menu">
+          <li><a class="item-list" href="#home">Home</a></li>
+          <li><a class="item-list" href="#sobre">Sobre</a></li>
+          <li><a class="item-list" href="#projetos">Projetos</a></li>
+          <li><a class="item-list" href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-container">
+      <section class="section-container home" id="home">
+        <div class="info-container">
+          <h1>Olá, eu sou o Victor 👋</h1>
+          <h2>Desenvolvedor Front-end focado em criar interfaces modernas, funcionais e intuitivas.</h2>
+          <p>Transformando ideias em código limpo, responsivo, eficiente e acessível.</p>
+          <div class="hero-buttons">
+            <a href="#sobre" class="btn">
+              <img src="assets/icons/user.png" alt="user icon" class="btn-icon" />
+              Sobre mim
+            </a>
+            <a href="#projetos" class="btn">
+              <img src="assets/icons/folder_coding.png" alt="folder coding icon" class="btn-icon" />
+              Projetos
+            </a>
+            <a href="#habilidades" class="btn">
+              <img src="assets/icons/technology.png" alt="technology icon" class="btn-icon" />
+              Habilidades
+            </a>
+            <a href="#contato" class="btn">
+              <img src="assets/icons/contact.png" alt="contact icon" class="btn-icon" />
+              Contato
+            </a>
+          </div>
+        </div>
+
+        <div class="img-container">
+          <img src="assets/icons/perfil.png" alt="Foto de Victor Guilherme, desenvolvedor front-end" />
+        </div>
+      </section>
+
+      <section class="section-container" id="sobre">
+        <h2>Sobre mim</h2>
+        <div class="container-limited">
+          <div class="container-about">
+            <p>
+              Me chamo Victor Guilherme e comecei a programar com apenas 12 anos. Desde então, mergulhei de cabeça no universo da tecnologia, explorando tudo o que podia sobre desenvolvimento web.
+              Hoje, tenho como foco o front-end, criando interfaces modernas, funcionais e com ótima experiência para o usuário.
+            </p>
+            <p>
+              Também tenho conhecimento sólido em bancos de dados e trabalho com tecnologias como o Firebase, unindo praticidade e desempenho em projetos. Gosto de transformar ideias em aplicações
+              reais e estou sempre buscando aprender algo novo para evoluir como desenvolvedor.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-container" id="habilidades">
+        <h2>Habilidades</h2>
+        <div class="carousel-container">
+          <button class="scroll-button left" onclick="scrollCards(-1)">&#10094;</button>
+
+          <div class="card-list" id="cardList">
+            <div class="card">
+              <img src="assets/habilities/html.png" alt="icone html" class="card-icon" />
+              <h3>HTML5</h3>
+              <p>Linguagem de marcação para estruturar conteúdo na web de forma semântica e acessível.</p>
+            </div>
+            <div class="card">
+              <img src="assets/habilities/css.png" alt="icone css" class="card-icon" />
+              <h3>CSS3</h3>
+              <p>Estilização avançada de páginas, com animações, layouts responsivos e design moderno.</p>
+            </div>
+            <div class="card">
+              <img src="assets/habilities/javascript.png" alt="icone javascript" class="card-icon" />
+              <h3>JavaScript</h3>
+              <p>Permite adicionar interatividade e lógica de programação a páginas web dinâmicas.</p>
+            </div>
+            <div class="card">
+              <img src="assets/habilities/typescript.png" alt="icone typescript" class="card-icon" />
+              <h3>TypeScript</h3>
+              <p>Superset do JavaScript que adiciona tipagem estática, aumentando a escalabilidade.</p>
+            </div>
+            <div class="card">
+              <img src="assets/habilities/react.png" alt="icone react" class="card-icon" />
+              <h3>React</h3>
+              <p>Biblioteca JavaScript para construção de interfaces reativas e componentizadas.</p>
+            </div>
+            <div class="card">
+              <img src="assets/habilities/redux.png" alt="icone redux" class="card-icon" />
+              <h3>Redux</h3>
+              <p>Gerenciamento de estado previsível para aplicações JavaScript complexas.</p>
+            </div>
+            <div class="card">
+              <img src="assets/habilities/react-test.png" alt="icone react-test" class="card-icon" />
+              <h3>React Testing Library</h3>
+              <p>Ferramenta para testar componentes React com foco na experiência do usuário.</p>
+            </div>
+            <div class="card">
+              <img src="assets/habilities/react-query.png" alt="icone react-query" class="card-icon" />
+              <h3>React Query</h3>
+              <p>Gerenciamento de estados assíncronos, como requisições e cache de dados.</p>
+            </div>
+            <div class="card">
+              <img src="assets/habilities/tailwind.png" alt="icone tailwind" class="card-icon" />
+              <h3>Tailwind CSS</h3>
+              <p>Framework utilitário que acelera a construção de interfaces modernas e responsivas.</p>
+            </div>
+            <div class="card">
+              <img src="assets/habilities/sass.png" alt="icone sass" class="card-icon" />
+              <h3>Sass</h3>
+              <p>Extensão de CSS que permite variáveis, funções e organização modular do código.</p>
+            </div>
+            <div class="card">
+              <img src="assets/habilities/styled-components.png" alt="icone styled-components" class="card-icon" />
+              <h3>CSS-in-JS</h3>
+              <p>CSS-in-JS para estilizar componentes React com escopo local e reutilização.</p>
+            </div>
+            <div class="card">
+              <img src="assets/habilities/firebase.png" alt="icone firebase" class="card-icon" />
+              <h3>Firebase</h3>
+              <p>Plataforma do Google para backend serverless, autenticação e banco de dados em tempo real.</p>
+            </div>
+          </div>
+
+          <button class="scroll-button right" onclick="scrollCards(1)">&#10095;</button>
+        </div>
+      </section>
+
+      <section class="section-container" id="projetos">
+        <h2>Projetos</h2>
+        <div class="projects-container">
+          <div class="card-project">
+            <img src="assets/projects/validcontrol.png" alt="Projeto ValidControl" />
+            <div class="card-project-info">
+              <h3>ValidControl</h3>
+              <p>Sistema web desenvolvido em React para controle de validades, com alertas automáticos e visualização rápida das datas críticas.</p>
+            </div>
+          </div>
+          <div class="card-project">
+            <img src="assets/projects/miniblog.png" alt="Projeto Miniblog" />
+            <div class="card-project-info">
+              <h3>Miniblog</h3>
+              <p>Miniblog desenvolvido em React para publicação rápida de conteúdos, com interface simples, responsiva e foco na leitura e organização de postagens.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-container" id="contato">
+        <h2>Contato</h2>
+        <div class="contact-container">
+          <a href="https://github.com/victorgpd" target="_blank" rel="noopener noreferrer">
+            <img src="assets/icons/github.png" alt="icone github" class="contact-icon" />
+            <h4>GitHub</h4>
+            <p>@victorgpd</p>
+          </a>
+          <a href="https://www.linkedin.com/in/victorgpd/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/icons/linkedin.png" alt="icone github" class="contact-icon" />
+            <h4>GitHub</h4>
+            <p>@victorgpd</p>
+          </a>
+          <a href="https://wa.me/5581988160687" target="_blank" rel="noopener noreferrer">
+            <img src="assets/icons/telephone.png" alt="icone github" class="contact-icon" />
+            <h4>Telefone</h4>
+            <p>(81) 98816-0687</p>
+          </a>
+          <a href="mailto:victorguilherme20041@gmail.com" target="_blank" rel="noopener noreferrer">
+            <img src="assets/icons/email.png" alt="icone github" class="contact-icon" />
+            <h4>Email</h4>
+            <p>victorguilherme20041@gmail.com</p>
+          </a>
+        </div>
+      </section>
+
+      <nav class="menu-container hidden" id="sideMenu">
+        <ul class="side-menu-list">
+          <li><button class="side-item">Início</button></li>
+          <li><button class="side-item">Sobre</button></li>
+          <li><button class="side-item">Habilidades</button></li>
+          <li><button class="side-item">Projetos</button></li>
+          <li><button class="side-item">Contato</button></li>
+        </ul>
+      </nav>
+
+      <div class="backdrop hidden" id="backdrop" onclick="toggleMenu()"></div>
+    </main>
+
+    <footer>
+      <p>© 2025 <strong>Victor Guilherme</strong>. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
 </html>
