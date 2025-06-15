@@ -146,20 +146,33 @@
       <section class="section-container" id="projetos">
         <h2>Projetos</h2>
         <div class="projects-container">
-          <a href="https://victorgpd.github.io/validcontrol" target="_blank" class="card-project">
+          <div
+            class="card-project"
+            data-title="ValidControl"
+            data-description="Aplicação web construída com React, utilizando Hooks e Context API para gerenciar o estado, além do Firebase para armazenamento e autenticação. O ValidControl auxilia empresas no monitoramento de validades de produtos, oferecendo cadastro detalhado, alertas automáticos via notificações e uma interface responsiva que facilita a visualização rápida dos produtos próximos do vencimento, reduzindo perdas e melhorando a gestão de estoque."
+            data-img="assets/projects/validcontrol.png"
+            data-link="https://victorgpd.github.io/validcontrol"
+          >
             <img src="assets/projects/validcontrol.png" alt="Projeto ValidControl" />
             <div class="card-project-info">
               <h3>ValidControl</h3>
-              <p>Sistema web desenvolvido em React para controle de validades, com alertas automáticos e visualização rápida das datas críticas.</p>
+              <p>App React com Firebase para controle de validades, alertas automáticos e visualização rápida de produtos críticos.</p>
             </div>
-          </a>
-          <a href="https://victorgpd.github.io/miniblog" target="_blank" class="card-project">
+          </div>
+
+          <div
+            class="card-project"
+            data-title="Miniblog"
+            data-description="Plataforma desenvolvida em React com uso de React Router para navegação e React Hook Form para gerenciamento dos formulários. Permite criação, edição e exibição de posts com imagens e texto, armazenados localmente ou via API. O Miniblog é ideal para escritores e programadores que buscam uma solução leve, responsiva e focada em experiência de leitura, com layout limpo e otimizado para dispositivos móveis."
+            data-img="assets/projects/miniblog.png"
+            data-link="https://victorgpd.github.io/miniblog"
+          >
             <img src="assets/projects/miniblog.png" alt="Projeto Miniblog" />
             <div class="card-project-info">
               <h3>Miniblog</h3>
-              <p>Miniblog desenvolvido em React para publicação rápida de conteúdos, com interface simples, responsiva e foco na leitura e organização de postagens.</p>
+              <p>Blog React com navegação dinâmica e formulário customizado, focado em leitura e organização eficiente de conteúdo.</p>
             </div>
-          </a>
+          </div>
         </div>
       </section>
 
@@ -189,6 +202,16 @@
         </div>
       </section>
 
+      <aside class="modal-project hidden" id="modalProject">
+        <button class="modal-close" onclick="closeModal()" aria-label="Fechar modal">×</button>
+        <img src="" alt="" />
+        <div class="modal-project-info">
+          <h3></h3>
+          <p></p>
+          <a href="#" target="_blank" class="btn-open-project">Abrir projeto</a>
+        </div>
+      </aside>
+
       <nav class="menu-container hidden" id="sideMenu">
         <ul class="side-menu-list">
           <li><button class="side-item">Início</button></li>
@@ -199,7 +222,7 @@
         </ul>
       </nav>
 
-      <div class="backdrop hidden" id="backdrop" onclick="toggleMenu()"></div>
+      <aside class="backdrop hidden" id="backdrop" onclick="toggleMenu()"></aside>
     </main>
 
     <footer>

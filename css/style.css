@@ -400,8 +400,6 @@ header {
 }
 
 .card-project {
-  /* flex: 1 0 300px; */
-
   width: 100%;
   max-width: 500px;
   min-width: 300px;
@@ -596,7 +594,11 @@ header {
 }
 
 .btn:hover {
-  background-color: #00acc1;
+  background-color: #003b6e;
+  color: #ffffff;
+  border-color: #6be0f0;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .btn-outline {
@@ -715,6 +717,105 @@ header {
   transform: translateX(-100%);
 }
 
+.modal-project {
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  max-height: 760px;
+
+  background: var(--bg-section-alt);
+  border: 2px solid var(--accent);
+  border-radius: 16px;
+
+  box-shadow: 0 0 10px rgba(0, 198, 255, 0.2), 0 0 25px rgba(0, 198, 255, 0.1);
+
+  padding: 50px 24px 10px;
+  overflow: hidden;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+
+  color: var(--text-primary);
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-project.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-project:hover {
+  box-shadow: 0 0 18px rgba(0, 198, 255, 0.4), 0 0 35px rgba(0, 198, 255, 0.2);
+}
+
+.modal-project-info {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-project h3 {
+  font-size: 1.8rem;
+  color: var(--accent);
+  text-align: center;
+}
+
+.modal-project p {
+  color: var(--text-secondary);
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 0 10px;
+}
+
+.modal-project img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+  z-index: 1001;
+}
+
+.modal-close:hover {
+  color: var(--accent);
+}
+
+.btn-open-project {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 18px;
+  background-color: var(--accent);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-open-project:hover {
+  background-color: #00c6ffcc; /* tom mais claro */
+}
+
 footer {
   padding: 2rem 0;
   font-size: 0.9rem;
@@ -790,5 +891,9 @@ footer {
     background: none;
     color: white;
     border: none;
+  }
+
+  .modal-project {
+    width: 90%;
   }
 }
