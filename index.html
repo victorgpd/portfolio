@@ -1,234 +1,245 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Victor | Desenvolvedor Front-end</title>
-    <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
-  </head>
-  <body>
-    <header>
-      <i class="fi fi-rr-menu-burger menu-button" onclick="toggleMenu()" aria-label="Abrir menu de navegação"></i>
+<title>Victor Guilherme</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Victor Guilherme, desenvolvedor Full Stack em Recife. React, Node.js, PostgreSQL e IA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column; the hero is a cited answer (like DocMind), each citation jumps to its source section below. */
+:root {
+  --paper: #F4F6F4;
+  --panel: #FFFFFF;
+  --ink: #13201C;
+  --muted: #56645F;
+  --line: #D8DFDB;
+  --mangue: #0E6B58;
+  --mangue-soft: #E1EFEA;
+  --caju: #C9541F;
+  --display: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F1714; --panel: #16211D; --ink: #E7EEEA; --muted: #9AABA4; --line: #26342F;
+    --mangue: #4CC3A5; --mangue-soft: #18302A; --caju: #F08A55; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F1714; --panel: #16211D; --ink: #E7EEEA; --muted: #9AABA4; --line: #26342F;
+  --mangue: #4CC3A5; --mangue-soft: #18302A; --caju: #F08A55; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body {
+  background: var(--paper); color: var(--ink);
+  font: 400 17px/1.6 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 880px; margin: 0 auto; }
+a { color: var(--mangue); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--caju); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+.label { font: 500 12px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 
-      <h1 class="gradient-text">Portfólio</h1>
+/* top bar */
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 24px; }
+.mark { font: 700 18px var(--display); color: var(--ink); text-decoration: none; }
+.mark span { color: var(--mangue); }
+.nav { display: flex; gap: 20px; flex-wrap: wrap; font-size: 15px; }
+.nav a { color: var(--muted); text-decoration: none; }
+.nav a:hover { color: var(--ink); }
 
-      <nav class="nav-header">
-        <ul class="list-menu">
-          <li><a class="item-list" href="#home">Home</a></li>
-          <li><a class="item-list" href="#sobre">Sobre</a></li>
-          <li><a class="item-list" href="#projetos">Projetos</a></li>
-          <li><a class="item-list" href="#contato">Contato</a></li>
+/* hero */
+.hero { padding-block: 48px 64px; display: grid; gap: 32px; }
+.hero h1 { font-size: clamp(40px, 7vw, 68px); line-height: 1.02; font-weight: 700; }
+.hero h1 em { font-style: normal; color: var(--mangue); }
+.lede { font-size: 19px; color: var(--muted); max-width: 60ch; margin: 0; }
+.where { font: 400 14px var(--mono); color: var(--muted); }
+
+.ask { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: grid; gap: 16px; max-width: 680px; }
+.q { justify-self: end; background: var(--mangue); color: var(--paper); padding: 10px 16px; border-radius: 14px 14px 4px 14px; font-size: 15px; font-weight: 500; }
+.a { font-size: 16px; margin: 0; }
+.a a.cite { font: 500 12px var(--mono); text-decoration: none; background: var(--mangue-soft); color: var(--mangue); padding: 1px 6px; border-radius: 4px; vertical-align: 2px; }
+.a a.cite:hover { background: var(--mangue); color: var(--paper); }
+.src { border-top: 1px dashed var(--line); padding-top: 12px; display: flex; gap: 8px 20px; flex-wrap: wrap; font: 400 13px var(--mono); color: var(--muted); }
+.cursor { display: inline-block; width: 8px; height: 1em; background: var(--mangue); vertical-align: -2px; margin-left: 2px; animation: blink 1.1s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+.cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 10px; font: 600 15px var(--body); text-decoration: none; border: 1px solid var(--line); color: var(--ink); background: var(--panel); cursor: pointer; }
+.btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn:hover { border-color: var(--mangue); }
+
+/* sections */
+section { padding-block: 56px; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+.head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }
+.head h2 { font-size: clamp(28px, 4vw, 36px); }
+.head .tag { font: 500 13px var(--mono); color: var(--mangue); }
+
+.project { display: grid; grid-template-columns: 1fr; gap: 16px; padding: 28px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+.project + .project { margin-top: 20px; }
+.project h3 { font-size: 26px; }
+.project .kind { color: var(--muted); margin: 4px 0 0; }
+.project ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.project li::marker { color: var(--mangue); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0 !important; }
+.chips li { font: 400 13px var(--mono); padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+.links { display: flex; gap: 16px; flex-wrap: wrap; font-weight: 600; font-size: 15px; }
+.status { font: 500 12px var(--mono); color: var(--mangue); display: inline-flex; align-items: center; gap: 6px; }
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--mangue); }
+
+.minor { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 20px; }
+.minor div { padding: 20px 0; border-top: 2px solid var(--ink); }
+.minor h3 { font-size: 19px; margin-bottom: 6px; }
+.minor p { margin: 0; color: var(--muted); font-size: 15px; }
+
+.stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 32px; }
+.stack dl { margin: 0; padding: 16px 0; border-bottom: 1px solid var(--line); display: grid; gap: 6px; }
+.stack dt { font: 500 12px var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--mangue); }
+.stack dd { margin: 0; }
+
+.timeline { display: grid; gap: 24px; }
+.item { display: grid; grid-template-columns: 160px 1fr; gap: 8px 24px; }
+.item .when { font: 400 14px var(--mono); color: var(--muted); padding-top: 4px; }
+.item h3 { font-size: 20px; }
+.item p { margin: 4px 0 0; color: var(--muted); }
+@media (max-width: 560px) { .item { grid-template-columns: 1fr; } .project { padding: 20px; } .ask { padding: 18px; } }
+
+.contact { display: grid; gap: 20px; }
+.contact h2 { font-size: clamp(30px, 5vw, 44px); }
+.rows { display: grid; gap: 12px; }
+.row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 14px 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+.row .label { width: 90px; }
+.row .val { font: 500 15px var(--mono); flex: 1; min-width: 0; overflow-wrap: anywhere; user-select: all; }
+.copy { font: 600 13px var(--body); padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+.copy:hover { border-color: var(--mangue); color: var(--mangue); }
+footer { padding-block: 40px; color: var(--muted); font: 400 13px var(--mono); border-top: 1px solid var(--line); margin-top: 32px; }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#inicio">victor<span>.</span>dev</a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#projetos">Projetos</a>
+      <a href="#stack">Stack</a>
+      <a href="#trajetoria">Trajetória</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <div class="hero">
+      <p class="where">Recife, PE · disponível para vagas e projetos</p>
+      <h1>Victor Guilherme.<br>Full stack, <em>com IA</em> no meio.</h1>
+      <p class="lede">Construo aplicações completas, do React ao Node.js e PostgreSQL, e coloco modelos de linguagem para trabalhar dentro delas. Dois produtos meus estão em produção agora.</p>
+
+      <div class="ask" aria-label="Exemplo de resposta com citações">
+        <div class="q">O que o Victor constrói?</div>
+        <p class="a">Produtos web completos com IA integrada: um CRM que atende clientes no WhatsApp com IA <a class="cite" href="#nexus">[1]</a> e uma plataforma que responde perguntas sobre documentos com a fonte de cada resposta <a class="cite" href="#docmind">[2]</a>, ambos em React, Node.js e PostgreSQL <a class="cite" href="#stack">[3]</a>.<span class="cursor" aria-hidden="true"></span></p>
+        <div class="src"><span>[1] Nexus CRM</span><span>[2] DocMind</span><span>[3] Stack</span></div>
+      </div>
+
+      <div class="cta">
+        <a class="btn primary" href="#projetos">Ver projetos</a>
+        <a class="btn" href="https://www.linkedin.com/in/victorgpd" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/victorgpd" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <section id="projetos" aria-labelledby="t-proj">
+      <div class="head"><h2 id="t-proj">Projetos</h2><span class="tag">2 em produção</span></div>
+
+      <article class="project" id="docmind">
+        <div>
+          <span class="status">no ar</span>
+          <h3>DocMind</h3>
+          <p class="kind">Perguntas e respostas sobre documentos, com fontes.</p>
+        </div>
+        <ul>
+          <li>Pipeline RAG com busca híbrida (pgvector + texto completo) e reranking.</li>
+          <li>Respostas em streaming com citações que abrem o trecho exato do documento.</li>
+          <li>Multi-organização com dados isolados e controle de uso e custo por organização.</li>
+          <li>Modo agente que pesquisa em etapas e mostra cada passo.</li>
+          <li>Ingestão em segundo plano com fila, testes automatizados, CI/CD e Docker.</li>
         </ul>
-      </nav>
-    </header>
-
-    <main class="main-container">
-      <section class="section-container home" id="home">
-        <div class="info-container">
-          <h1>Olá, eu sou o Victor 👋</h1>
-          <h2>Desenvolvedor Front-end focado em criar interfaces modernas, funcionais e intuitivas.</h2>
-          <p>Transformando ideias em código limpo, responsivo, eficiente e acessível.</p>
-          <div class="hero-buttons">
-            <a href="#sobre" class="btn">
-              <img src="assets/icons/user.png" alt="user icon" class="btn-icon" />
-              Sobre mim
-            </a>
-            <a href="#projetos" class="btn">
-              <img src="assets/icons/folder_coding.png" alt="folder coding icon" class="btn-icon" />
-              Projetos
-            </a>
-            <a href="#habilidades" class="btn">
-              <img src="assets/icons/technology.png" alt="technology icon" class="btn-icon" />
-              Habilidades
-            </a>
-            <a href="#contato" class="btn">
-              <img src="assets/icons/contact.png" alt="contact icon" class="btn-icon" />
-              Contato
-            </a>
-          </div>
-        </div>
-
-        <div class="img-container">
-          <img src="assets/icons/perfil.png" alt="Foto de Victor Guilherme, desenvolvedor front-end" />
-        </div>
-      </section>
-
-      <section class="section-container" id="sobre">
-        <h2>Sobre mim</h2>
-        <div class="container-limited">
-          <div class="container-about">
-            <p>
-              Me chamo Victor Guilherme e comecei a programar com apenas 12 anos. Desde então, mergulhei de cabeça no universo da tecnologia, explorando tudo o que podia sobre desenvolvimento web.
-              Hoje, tenho como foco o front-end, criando interfaces modernas, funcionais e com ótima experiência para o usuário.
-            </p>
-            <p>
-              Também tenho conhecimento sólido em bancos de dados e trabalho com tecnologias como o Firebase, unindo praticidade e desempenho em projetos. Gosto de transformar ideias em aplicações
-              reais e estou sempre buscando aprender algo novo para evoluir como desenvolvedor.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section-container" id="habilidades">
-        <h2>Habilidades</h2>
-        <div class="carousel-container">
-          <button class="scroll-button left" onclick="scrollCards(-1)">&#10094;</button>
-
-          <div class="card-list" id="cardList">
-            <div class="card">
-              <img src="assets/habilities/html.png" alt="icone html" class="card-icon" />
-              <h3>HTML5</h3>
-              <p>Linguagem de marcação para estruturar conteúdo na web de forma semântica e acessível.</p>
-            </div>
-            <div class="card">
-              <img src="assets/habilities/css.png" alt="icone css" class="card-icon" />
-              <h3>CSS3</h3>
-              <p>Estilização avançada de páginas, com animações, layouts responsivos e design moderno.</p>
-            </div>
-            <div class="card">
-              <img src="assets/habilities/javascript.png" alt="icone javascript" class="card-icon" />
-              <h3>JavaScript</h3>
-              <p>Permite adicionar interatividade e lógica de programação a páginas web dinâmicas.</p>
-            </div>
-            <div class="card">
-              <img src="assets/habilities/typescript.png" alt="icone typescript" class="card-icon" />
-              <h3>TypeScript</h3>
-              <p>Superset do JavaScript que adiciona tipagem estática, aumentando a escalabilidade.</p>
-            </div>
-            <div class="card">
-              <img src="assets/habilities/react.png" alt="icone react" class="card-icon" />
-              <h3>React</h3>
-              <p>Biblioteca JavaScript para construção de interfaces reativas e componentizadas.</p>
-            </div>
-            <div class="card">
-              <img src="assets/habilities/redux.png" alt="icone redux" class="card-icon" />
-              <h3>Redux</h3>
-              <p>Gerenciamento de estado previsível para aplicações JavaScript complexas.</p>
-            </div>
-            <div class="card">
-              <img src="assets/habilities/react-test.png" alt="icone react-test" class="card-icon" />
-              <h3>React Testing Library</h3>
-              <p>Ferramenta para testar componentes React com foco na experiência do usuário.</p>
-            </div>
-            <div class="card">
-              <img src="assets/habilities/react-query.png" alt="icone react-query" class="card-icon" />
-              <h3>React Query</h3>
-              <p>Gerenciamento de estados assíncronos, como requisições e cache de dados.</p>
-            </div>
-            <div class="card">
-              <img src="assets/habilities/tailwind.png" alt="icone tailwind" class="card-icon" />
-              <h3>Tailwind CSS</h3>
-              <p>Framework utilitário que acelera a construção de interfaces modernas e responsivas.</p>
-            </div>
-            <div class="card">
-              <img src="assets/habilities/sass.png" alt="icone sass" class="card-icon" />
-              <h3>Sass</h3>
-              <p>Extensão de CSS que permite variáveis, funções e organização modular do código.</p>
-            </div>
-            <div class="card">
-              <img src="assets/habilities/styled-components.png" alt="icone styled-components" class="card-icon" />
-              <h3>CSS-in-JS</h3>
-              <p>CSS-in-JS para estilizar componentes React com escopo local e reutilização.</p>
-            </div>
-            <div class="card">
-              <img src="assets/habilities/firebase.png" alt="icone firebase" class="card-icon" />
-              <h3>Firebase</h3>
-              <p>Plataforma do Google para backend serverless, autenticação e banco de dados em tempo real.</p>
-            </div>
-          </div>
-
-          <button class="scroll-button right" onclick="scrollCards(1)">&#10095;</button>
-        </div>
-      </section>
-
-      <section class="section-container" id="projetos">
-        <h2>Projetos</h2>
-        <div class="projects-container">
-          <div
-            class="card-project"
-            data-title="ValidControl"
-            data-description="Aplicação web construída com React, utilizando Hooks e Context API para gerenciar o estado, além do Firebase para armazenamento e autenticação. O ValidControl auxilia empresas no monitoramento de validades de produtos, oferecendo cadastro detalhado, alertas automáticos via notificações e uma interface responsiva que facilita a visualização rápida dos produtos próximos do vencimento, reduzindo perdas e melhorando a gestão de estoque."
-            data-img="assets/projects/validcontrol.png"
-            data-link="https://victorgpd.github.io/validcontrol"
-          >
-            <img src="assets/projects/validcontrol.png" alt="Projeto ValidControl" />
-            <div class="card-project-info">
-              <h3>ValidControl</h3>
-              <p>App React com Firebase para controle de validades, alertas automáticos e visualização rápida de produtos críticos.</p>
-            </div>
-          </div>
-
-          <div
-            class="card-project"
-            data-title="Miniblog"
-            data-description="Plataforma desenvolvida em React com uso de React Router para navegação e React Hook Form para gerenciamento dos formulários. Permite criação, edição e exibição de posts com imagens e texto, armazenados localmente ou via API. O Miniblog é ideal para escritores e programadores que buscam uma solução leve, responsiva e focada em experiência de leitura, com layout limpo e otimizado para dispositivos móveis."
-            data-img="assets/projects/miniblog.png"
-            data-link="https://victorgpd.github.io/miniblog"
-          >
-            <img src="assets/projects/miniblog.png" alt="Projeto Miniblog" />
-            <div class="card-project-info">
-              <h3>Miniblog</h3>
-              <p>Blog React com navegação dinâmica e formulário customizado, focado em leitura e organização eficiente de conteúdo.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section-container" id="contato">
-        <h2>Contato</h2>
-        <div class="contact-container">
-          <a href="https://github.com/victorgpd" target="_blank" rel="noopener noreferrer">
-            <img src="assets/icons/github.png" alt="icone github" class="contact-icon" />
-            <h4>GitHub</h4>
-            <p>@victorgpd</p>
-          </a>
-          <a href="https://www.linkedin.com/in/victorgpd/" target="_blank" rel="noopener noreferrer">
-            <img src="assets/icons/linkedin.png" alt="icone github" class="contact-icon" />
-            <h4>GitHub</h4>
-            <p>@victorgpd</p>
-          </a>
-          <a href="https://wa.me/5581988160687" target="_blank" rel="noopener noreferrer">
-            <img src="assets/icons/telephone.png" alt="icone github" class="contact-icon" />
-            <h4>Telefone</h4>
-            <p>(81) 98816-0687</p>
-          </a>
-          <a href="mailto:victorguilherme20041@gmail.com" target="_blank" rel="noopener noreferrer">
-            <img src="assets/icons/email.png" alt="icone github" class="contact-icon" />
-            <h4>Email</h4>
-            <p>victorguilherme20041@gmail.com</p>
-          </a>
-        </div>
-      </section>
-
-      <aside class="modal-project hidden" id="modalProject">
-        <button class="modal-close" onclick="closeModal()" aria-label="Fechar modal">×</button>
-        <img src="" alt="" />
-        <div class="modal-project-info">
-          <h3></h3>
-          <p></p>
-          <a href="#" target="_blank" class="btn-open-project">Abrir projeto</a>
-        </div>
-      </aside>
-
-      <nav class="menu-container hidden" id="sideMenu">
-        <ul class="side-menu-list">
-          <li><button class="side-item">Início</button></li>
-          <li><button class="side-item">Sobre</button></li>
-          <li><button class="side-item">Habilidades</button></li>
-          <li><button class="side-item">Projetos</button></li>
-          <li><button class="side-item">Contato</button></li>
+        <ul class="chips" aria-label="Tecnologias do DocMind">
+          <li>Next.js</li><li>TypeScript</li><li>Node.js · Fastify</li><li>PostgreSQL + pgvector</li><li>Redis · BullMQ</li><li>Docker</li><li>GitHub Actions</li>
         </ul>
-      </nav>
+        <div class="links"><a href="https://docmind.nexuscrmm.com" target="_blank" rel="noopener">Abrir o DocMind ↗</a></div>
+      </article>
 
-      <aside class="backdrop hidden" id="backdrop" onclick="toggleMenu()"></aside>
-    </main>
+      <article class="project" id="nexus">
+        <div>
+          <span class="status">no ar</span>
+          <h3>Nexus CRM</h3>
+          <p class="kind">CRM com automação de WhatsApp e atendimento por IA.</p>
+        </div>
+        <ul>
+          <li>Centraliza o atendimento pelo WhatsApp e o histórico de cada cliente em um só lugar.</li>
+          <li>Atendimento automatizado com IA, que responde e direciona os contatos.</li>
+          <li>Em produção, com front-end no Cloudflare e back-end na Hostinger.</li>
+        </ul>
+        <ul class="chips" aria-label="Tecnologias do Nexus CRM">
+          <li>React</li><li>TypeScript</li><li>Node.js</li><li>PostgreSQL</li><li>Docker</li><li>APIs de IA</li>
+        </ul>
+        <div class="links"><a href="https://nexuscrmm.com" target="_blank" rel="noopener">Abrir o Nexus CRM ↗</a></div>
+      </article>
 
-    <footer>
-      <p>© 2025 <strong>Victor Guilherme</strong>. Todos os direitos reservados.</p>
-    </footer>
+    </section>
 
-    <script src="js/script.js"></script>
-  </body>
-</html>
+    <section id="stack" aria-labelledby="t-stack">
+      <div class="head"><h2 id="t-stack">Stack</h2><span class="tag">o que uso no dia a dia</span></div>
+      <div class="stack">
+        <dl><dt>Front-end</dt><dd>React, Next.js, TypeScript, Tailwind, SASS, Styled-components, Ant Design</dd></dl>
+        <dl><dt>Back-end</dt><dd>Node.js, Express, Fastify, APIs REST, Python básico</dd></dl>
+        <dl><dt>Dados</dt><dd>PostgreSQL, pgvector, Drizzle, Redis, Firebase</dd></dl>
+        <dl><dt>IA</dt><dd>Integração com LLMs, RAG, embeddings, agentes, automação de WhatsApp</dd></dl>
+        <dl><dt>Infra</dt><dd>Docker, GitHub Actions, Cloudflare, Hostinger, Git</dd></dl>
+        <dl><dt>Ferramentas</dt><dd>Figma, Vitest, Claude Code</dd></dl>
+      </div>
+    </section>
+
+    <section id="trajetoria" aria-labelledby="t-traj">
+      <div class="head"><h2 id="t-traj">Trajetória</h2></div>
+      <div class="timeline">
+        <div class="item">
+          <span class="when">out/2026 – atual</span>
+          <div><h3>Desenvolvedor Full Stack · Autônomo</h3><p>Sistemas web para clientes e produtos próprios. Criei e publiquei o Nexus CRM e o DocMind, do requisito ao deploy.</p></div>
+        </div>
+        <div class="item">
+          <span class="when">2025 – 2029</span>
+          <div><h3>Engenharia de Software · UniFBV Wyden</h3><p>Bacharelado em andamento.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="contact" aria-labelledby="t-cont">
+      <h2 id="t-cont">Vamos conversar?</h2>
+      <p class="lede">Busco uma vaga como desenvolvedor full stack ou de IA, remota ou em Recife. Também aceito projetos.</p>
+      <div class="rows">
+        <div class="row"><span class="label">E-mail</span><span class="val" id="v-email">victorguilherme20041@gmail.com</span><button class="copy" type="button" data-copy="v-email">Copiar</button></div>
+        <div class="row"><span class="label">Telefone</span><span class="val" id="v-tel">(81) 98816-0687</span><button class="copy" type="button" data-copy="v-tel">Copiar</button></div>
+        <div class="row"><span class="label">LinkedIn</span><a class="val" href="https://www.linkedin.com/in/victorgpd" target="_blank" rel="noopener">linkedin.com/in/victorgpd</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Victor Guilherme · Recife, PE</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.copy);
+    var text = el.textContent.trim();
+    function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copiar'; }, 1600); }
+    function selectIt() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); done('Selecionado'); }
+    try {
+      navigator.clipboard.writeText(text).then(function () { done('Copiado'); }, selectIt);
+    } catch (e) { selectIt(); }
+  });
+});
+</script>
